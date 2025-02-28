@@ -96,7 +96,7 @@ class Pty {
       final entry = effectiveEnv.entries.elementAt(i);
       envp[i] = '${entry.key}=${entry.value}'.toNativeUtf8();
     }
-    envp[effectiveEnv.length] = nullptr;
+    envp[effectiveEnv.length + 1] = nullptr;
 
     final options = calloc<PtyOptions>();
     options.ref.rows = rows;
